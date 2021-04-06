@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEditor.Compilation;
 using UnityEngine.Events;
+using static System.String;
 
 namespace AlkimeeGames.CodeOptimizationSymbols.Editor
 {
@@ -14,6 +14,9 @@ namespace AlkimeeGames.CodeOptimizationSymbols.Editor
     [PublicAPI]
     public sealed class SymbolSetter : IPreprocessBuildWithReport, IPostprocessBuildWithReport, IActiveBuildTargetChanged
     {
+        /// <summary>Possible separators in define string.</summary>
+        private static readonly char[] DefineSeparators = {';', ',', ' '};
+
         /// <summary>Symbol for the <see cref="BuildTargetGroup" />.</summary>
         private static readonly ISet<string> Symbols = new HashSet<string>();
 
@@ -92,7 +95,7 @@ namespace AlkimeeGames.CodeOptimizationSymbols.Editor
         /// <param name="symbols">An <see cref="IEnumerable{T}" /> of symbols to add.</param>
         private static void SetBuildTargetGroupSymbols(BuildTargetGroup buildTargetGroup, [NotNull] IEnumerable<string> symbols)
         {
-            PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, symbols.ToArray());
+            PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, Join(DefineSeparators[0].ToString(), symbols));
         }
 
         /// <summary>Populates <paramref name="symbolSet" /> with a symbol based on the current <see cref="CodeOptimization" />.</summary>
@@ -120,8 +123,8 @@ namespace AlkimeeGames.CodeOptimizationSymbols.Editor
         /// <param name="symbols">A set to populate with the build target symbols.</param>
         private static void GetBuildTargetGroupSymbols(BuildTargetGroup buildTargetGroup, [NotNull] ISet<string> symbols)
         {
-            PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup, out string[] currentSymbols);
-            symbols.UnionWith(currentSymbols);
+            string[] defines = PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup).Split(DefineSeparators, StringSplitOptions.RemoveEmptyEntries);
+            symbols.UnionWith(defines);
         }
     }
 }

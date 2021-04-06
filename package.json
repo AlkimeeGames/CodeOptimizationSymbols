@@ -1,7 +1,7 @@
 {
   "name": "com.alkimeegames.codeoptimizationsymbols",
   "displayName": "Code Optimization Symbols",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "unity": "2020.1",
   "description": "Automatically sets preprocessor directives based on the Code Optimization mode set in the Unity Editor.",
   "keywords": [
