@@ -20,8 +20,9 @@ currently active Code Optimization mode.
 
 Having compiler symbols for both the Debug and Release Code Optimization modes allows you to write code that is only available when either of these modes are available.
 
-For example, you may have a class which writes logs to the Unity Console when actions occur. You could use the pre-existing 'UNITY_EDITOR' symbol which would result in logs being sent to
-the console whenever you're running the game in the Editor. However, if you don't need these logs all the time and only need them whilst debugging, surrounding the code with the
+For example, you may have a class which writes logs to the Unity Console when actions occur. You could use the pre-existing 'UNITY_EDITOR' symbol which would result in logs being
+sent to the console whenever you're running the game in the Editor. However, if you don't need these logs all the time and only need them whilst debugging, surrounding the code
+with the
 'UNITY_EDITOR_DEBUG' symbol will make those logs *only* appear when the Editor is in Debug Code Optimization mode.
 
 Naturally, the symbols set by this tool can be used for more than just logging. You could also instantiate entirely difference classes based on the Code Optimization mode for
@@ -40,8 +41,8 @@ complete XML documentation.
 
 ## How does this work?
 
-The Code Optimization Symbols tool adds two new compiler symbols determined by which Code Optimization mode the Editor is in. Because of this, they can never both be set at the same
-time.
+The Code Optimization Symbols tool adds two new compiler symbols determined by which Code Optimization mode the Editor is in. Because of this, they can never both be set at the
+same time.
 
 - Debug Mode introduces the "UNITY_EDITOR_DEBUG" symbol.
 - Release Mode introduces the "UNITY_EDITOR_RELEASE" symbol.
@@ -49,8 +50,8 @@ time.
 ## Automatic Behaviour
 
 - When building your project the symbols will be automatically removed and re-added once the build is complete.
-- Switching platforms via the [Build Settings](https://docs.unity3d.com/Manual/BuildSettings.html) window or via script will automatically remove the symbols from the previous platform
-  and add them to the now active platform.
+- Switching platforms via the [Build Settings](https://docs.unity3d.com/Manual/BuildSettings.html) window or via script will automatically remove the symbols from the previous
+  platform and add them to the now active platform.
 - Exiting the Editor will remove either of the symbols.
 
 ## Example Usages
@@ -104,9 +105,9 @@ case of classes deriving from MonoBehaviour or ScriptableObject where Unity tend
 
 There are two public events available to subscribe to from your own Editor scripts.
 
-- CodeOptimizationSymbols.SettingSymbols
+- SymbolSetter.SettingSymbols
     - Raised *before* setting the symbols.
-- CodeOptimizationSymbols.SetSymbols
+- SymbolSetter.SetSymbols
     - Raised *after* setting the symbols.
 
 Both pass an ISet<string> to the subscribed method which contains *all* the symbols being applied.

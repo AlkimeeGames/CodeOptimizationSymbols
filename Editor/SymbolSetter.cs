@@ -12,7 +12,7 @@ namespace AlkimeeGames.CodeOptimizationSymbols.Editor
 {
     /// <summary>Automatically sets preprocessor directives based on the <see cref="CompilationPipeline.codeOptimization" /> set in the Unity Editor.</summary>
     [PublicAPI]
-    public sealed class CodeOptimizationSymbols : IPreprocessBuildWithReport, IPostprocessBuildWithReport, IActiveBuildTargetChanged
+    public sealed class SymbolSetter : IPreprocessBuildWithReport, IPostprocessBuildWithReport, IActiveBuildTargetChanged
     {
         /// <summary>Symbol for the <see cref="BuildTargetGroup" />.</summary>
         private static readonly ISet<string> Symbols = new HashSet<string>();
