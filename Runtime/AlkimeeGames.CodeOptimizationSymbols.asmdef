@@ -1,0 +1,14 @@
+{
+    "name": "AlkimeeGames.CodeOptimizationSymbols",
+    "rootNamespace": "AlkimeeGames.CodeOptimizationSymbols",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

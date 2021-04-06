@@ -1,0 +1,18 @@
+{
+  "name": "com.alkimeegames.codeoptimizationsymbols",
+  "displayName": "Code Optimization Symbols",
+  "version": "1.0.0",
+  "unity": "2020.1",
+  "description": "Automatically sets preprocessor directives based on the Code Optimization mode set in the Unity Editor.",
+  "keywords": [
+    "utils"
+  ],
+  "type": "tool",
+  "hideInEditor": false,
+  "unityRelease": "0f1",
+  "author": {
+    "name": "Andrew Menino-Barlow",
+    "email": "hello@alkimee.net",
+    "url": "https://github.com/AlkimeeGames"
+  }
+}
