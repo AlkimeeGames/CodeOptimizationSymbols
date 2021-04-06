@@ -66,7 +66,7 @@ public sealed class Bullet : MonoBehaviour
 
 #if UNITY_EDITOR_DEBUG
             // You will only see this log in the Editor AND if the Editor is in Debug Code Optimization mode.
-            Debug.Log("Destroying " + other.name");
+            Debug.Log("Destroying " + other.name);
 #endif
 
             Destroy(other.gameObject);
