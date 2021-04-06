@@ -140,7 +140,7 @@ Open *Packages/manifest.json* with your favorite text editor. Add the following 
 
     {
         "dependencies": {
-            "com.alkimeegames.codeoptimizationsymbols": "https://github.com/AlkimeeGames/CodeOptimizationsymbols.git#main"
+            "com.alkimeegames.codeoptimizationsymbols": "https://github.com/AlkimeeGames/CodeOptimizationSymbols.git#main"
         }
     }
 
